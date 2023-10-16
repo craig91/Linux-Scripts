@@ -39,3 +39,5 @@ visualStudio_code_install() {
 
 
 system_setup_debian
+chrome_install
+visualStudio_code_install
