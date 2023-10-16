@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# If you have zsh or any other shell, you can change it above /bin/your_shell_here
+
+# In order to use this script, you need to turn it into an executable .sh file.
+# The command to do this is as follows
+# chmod +x [FILE_NAME.sh]
+# For example:   $ /home/mecc01 chmod +x run_this_script.sh
+# Onced turned into an executable, You can run the script by using this method:
+# ./script.sh ----> "./" allows you to run an .sh file and then from there you can let it run.
+#
+# In order to pre-answer yes to all of the y/n prompts, you can run the script like this:
+# $ /home/mecc01 yes | ./script.sh
+# yes | ./your_script_file.sh
+
+
+
+
+
+# Program array, add any software you want to instal to this array, make sure to verify the official name from your package manager.
 Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl" "gpg" "wget" "snapd")
 
 
