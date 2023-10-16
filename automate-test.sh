@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Binaries=("vim", "nodejs", "okular", "simplescreenrecorder", "terminator", "gparted", "git", "curl")
+Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl")
 
 
 system_setup_debian() {
