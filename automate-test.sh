@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl")
+Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl" "gpg" "wget" "snapd")
 
 
 system_setup_debian() {
@@ -23,5 +23,19 @@ if ["$EUID" -ne 0]; then
 	echo "Run this script with root ( ex: sudo ./<script>)."
 	exit 1
 fi
+
+
+
+chrome_install() {
+	wget -P ~/Downloads/ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
+}
+
+
+
+visualStudio_code_install() {
+	sudo snap install --classic code
+}
+
 
 system_setup_debian
