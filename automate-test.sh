@@ -19,7 +19,7 @@ system_setup_debian() {
 	done
 }
 
-if ["EUID" -ne 0]; then
+if ["$EUID" -ne 0]; then
 	echo "Run this script with root ( ex: sudo ./<script>)."
 	exit 1
 fi
