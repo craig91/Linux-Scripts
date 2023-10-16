@@ -6,7 +6,7 @@ Binaries=("vim", "nodejs", "okular", "simplescreenrecorder", "terminator", "gpar
 system_setup_debian() {
 	sudo apt update
 	for prog in "${Binaries[@]}"; do
-		if ! dpkg | grep -q $prog; then
+		if ! dpkg -l | grep -q $prog; then
 			sudo apt install -y $prog
 			if [ $? -eq 0 ]; then
 				echo "Installed $prog successfully"
