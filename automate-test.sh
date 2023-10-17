@@ -30,9 +30,9 @@ if ! command -v dialog > /dev/null; then
 fi
 
 dialog --menu "Please select an option:" 12 40 4 \
-	1 "Debian"
-	2 "RedHat"
-	3 "Arch"
+	1 "Debian" \
+	2 "RedHat" \
+	3 "Arch" \
 	4 "Quit" 2> /tmp/choice
 
 choice=$(cat /tmp/choice)
