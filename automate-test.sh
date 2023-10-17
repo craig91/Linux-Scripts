@@ -13,20 +13,12 @@
 # $ /home/mecc01 yes | ./script.sh
 # yes | ./your_script_file.sh
 
-
-
-
-
 # Program array, add any software you want to instal to this array, make sure to verify the official name from your package manager.-
 Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl" "gpg" "wget" "snapd")
 
 
 if ! command -v dialog > /dev/null; then
-	if sudo apt-get install dialog == [$? - 0]; then
-		echo "not debian based, moving on to redhat based linux"
-	else dnf install dialog
-		echo "not redhat based, moving on to arch linux based"
-	fi 
+	sudo apt-get install dialog
 fi
 
 dialog --menu "Please select an option:" 12 40 4 \
@@ -100,7 +92,3 @@ visualStudio_code_install() {
 	sudo snap install --classic code
 }
 
-
-system_setup_debian
-chrome_install
-visualStudio_code_install
