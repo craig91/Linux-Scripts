@@ -4,7 +4,7 @@ if ! command -v dialog > /dev/null; then
 	if sudo apt-get install dialog == [$? - 0]; then
         
     else sudo dnf install dialog
-        
+        echo "not redhat based, moving on to arch linux based"
     fi 
     
 fi
