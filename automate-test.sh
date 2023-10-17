@@ -21,6 +21,51 @@
 Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl" "gpg" "wget" "snapd")
 
 
+if ! command -v dialog > /dev/null; then
+	if sudo apt-get install dialog == [$? - 0]; then
+		echo "not debian based, moving on to redhat based linux"
+	else dnf install dialog
+		echo "not redhat based, moving on to arch linux based"
+	fi 
+fi
+
+dialog --menu "Please select an option:" 12 40 4 \
+	1 "Debian"
+	2 "RedHat"
+	3 "Arch"
+	4 "Quit" 2> /tmp/choice
+
+choice=$(cat /tmp/choice)
+rm -f /tmp/choice
+
+case "$choice" in
+	1)	
+		echo "You chose debian based linux, now installing software"
+		system_setup_debian
+		chrome_install
+		visualStudio_code_install
+		;;
+	2)  
+		echo "You chose Redhat based linux, now installing software"
+		echo "Redhat stuff installing"
+		;;
+	3)
+		echo "You chose Arch based linux, now installing software"
+		echo "Arch linux stuff now installing"
+		;;
+	4)
+		echo "Bye"
+		exit 0;
+		;;
+	*)
+		echo "Invalid choice. Please select a valid option"
+		;;
+esac
+
+
+
+
+
 system_setup_debian() {
 	sudo apt update
 	for prog in "${Binaries[@]}"; do
