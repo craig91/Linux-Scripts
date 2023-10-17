@@ -16,11 +16,6 @@
 # Program array, add any software you want to instal to this array, make sure to verify the official name from your package manager.-
 Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl" "gpg" "wget" "snapd")
 
-
-if ! command -v dialog > /dev/null; then
-	sudo apt-get install dialog
-fi
-
 system_setup_debian() {
 	sudo apt update
 	for prog in "${Binaries[@]}"; do
@@ -56,6 +51,9 @@ visualStudio_code_install() {
 }
 
 
+if ! command -v dialog > /dev/null; then
+	sudo apt-get install dialog
+fi
 
 dialog --menu "Please select an option:" 12 40 4 \
 	1 "Debian" \
