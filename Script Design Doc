@@ -1,0 +1,25 @@
+Linux setup script for most distros
+The initial setup will be in bash, and then eventually in pythong (with a GUI)
+
+So far what works is the ability to install needed programs and some programs from source (ex: google chrome)
+
+next steps:
+Give users a choice based on which linux OS they are running - Debian, RedHat, Arch based
+ [I need to make sure that each choice is tied to an appropriate function in the program]
+After this, ensure full functionality on debian based linux then move to a different linux
+
+
+verify functionality on a non debian based linux as this was script was written on a ubuntu box.
+
+
+Basic Features
+Installaton of various linux software
+Ability to run on various linux distros (via choice from a menu)
+
+
+Future updates
+A python GUI?
+Re-rewritten in python
+Functions that can add a custom design to the UI based on the DE being used
+Customizations based on the type of use for the linux box (web dev setup, security setup, etc...)
+
