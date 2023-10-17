@@ -10,7 +10,7 @@
 # ./script.sh ----> "./" allows you to run an .sh file and then from there you can let it run.
 #
 # In order to pre-answer yes to all of the y/n prompts, you can run the script like this:
-# $ /home/mecc01 yes | ./script.sh
+# $ /home/$user yes | ./script.sh
 # yes | ./your_script_file.sh
 
 # Program array, add any software you want to instal to this array, make sure to verify the official name from your package manager.-
