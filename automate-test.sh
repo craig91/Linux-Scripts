@@ -14,7 +14,7 @@
 # yes | ./your_script_file.sh
 
 # Program array, add any software you want to instal to this array, make sure to verify the official name from your package manager.-
-Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl" "gpg" "wget" "snapd" "gcc")
+Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl" "gpg" "wget" "snapd" "gcc""make")
 
 system_setup_debian() {
 	sudo apt update
