@@ -41,11 +41,12 @@ fi
 
 chrome_install() {
 	if dpkg -l | grep -q "google-chrome"; then
-		echo "Google Chrome is already installed on this system";
-	else
 		echo "Google Chrome will now install"
 		wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 		sudo dpkg -i google-chrome-stable_current_amd64.deb
+	else
+		echo "Google Chrome is already installed on this system";
+		
 	fi
 }
 
@@ -58,8 +59,16 @@ visualStudio_code_install() {
 
 rust_install() {
 	
+if command -v &> /dev/null; then
+	echo "Rust is now installing on your system"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+else
+	echo "Rust is already installed on your system"
+fi
+	source $HOME/.cargo/env
+
 }
+
 
 if ! command -v dialog > /dev/null; then
 	sudo apt-get install dialog
