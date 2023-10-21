@@ -40,8 +40,13 @@ fi
 
 
 chrome_install() {
-	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-	sudo dpkg -i google-chrome-stable_current_amd64.deb
+	if dpkg -l | grep -q "google-chrome"; then
+		echo: "Google Chrome is already installed on this system";
+	else
+		echo: "Google Chrome will now install"
+		wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+		sudo dpkg -i google-chrome-stable_current_amd64.deb
+	fi
 }
 
 
@@ -50,6 +55,10 @@ visualStudio_code_install() {
 	sudo snap install --classic code
 }
 
+
+rust_install() {
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+}
 
 if ! command -v dialog > /dev/null; then
 	sudo apt-get install dialog
@@ -70,6 +79,7 @@ case "$choice" in
 		system_setup_debian
 		chrome_install
 		visualStudio_code_install
+		rust_install
 		;;
 	2)  
 		echo "You chose Redhat based linux, now installing software"
