@@ -42,10 +42,11 @@ fi
 chrome_install() {
 	if dpkg -l | grep -q "google-chrome"; then
 		echo "Google Chrome will now install"
-		wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-		sudo dpkg -i google-chrome-stable_current_amd64.deb
+		
 	else
 		echo "Google Chrome is already installed on this system";
+		wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+		sudo dpkg -i google-chrome-stable_current_amd64.deb
 		
 	fi
 }
