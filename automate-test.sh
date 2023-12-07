@@ -45,7 +45,7 @@ system_setup_Arch() {
                 echo "Failed to install $prog"
             fi
         else
-            echo "$prog: ---> is already installed"
+            echo "$prog: ---> ✅ is already installed ✅"
         fi
     done
 }
