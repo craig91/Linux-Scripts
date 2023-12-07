@@ -2,11 +2,11 @@
 #!/bin/bash
 
 
-Binaries=("vim" "nodejs" "terminator" "gparted" "git" "curl" "gpg" "gcc" "make" "go" "discord")
+Arch_Binaries=("vim" "nodejs" "terminator" "gparted" "git" "curl" "gpg" "gcc" "make" "go" "discord")
 
 system_setup_Arch() {
     sudo pacman -Syu
-    for prog in "${Binaries[@]}"; do
+    for prog in "${Arch_Binaries[@]}"; do
         if ! pacman -Q | grep -q $prog; then
             sudo pacman -S $prog
             if [$? -eq 0]; then
@@ -31,20 +31,18 @@ install_Fira_Code() {
     pwd
     unzip FiraCode.zip
     fc-cache -vf
-    echo "Confirm if FiraCode is on this list of fonts in your system"
+    echo "[+] Confirm if FiraCode is on this list of fonts in your system [+]"
     fc-list | grep FiraCode
 }
 
 install_japanese() {
-    sudo pacman -S git
     cd /home/$USER/Downloads
     git clone https://aur.archlinux.org/ttf-koruri.git
-    pwd
     cd ttf-koruri
     makepkg -si
 }
 
 system_setup_Arch
+install_Fira_Code
+install_japanese
 go version
-# install_Fira_Code
-# install_japanese
