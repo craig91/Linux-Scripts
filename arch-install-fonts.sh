@@ -2,7 +2,7 @@
 #!/bin/bash
 
 
-Arch_Binaries=("vim" "nodejs" "terminator" "gparted" "git" "curl" "gpg" "gcc" "make" "go" "discord")
+Arch_Binaries=("vim" "nodejs" "terminator" "gparted" "git" "curl" "gpg" "gcc" "make" "go" "discord" "neofetch")
 
 system_setup_Arch() {
     sudo pacman -Syu
