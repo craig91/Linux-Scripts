@@ -50,9 +50,6 @@ system_setup_Arch() {
     done
 }
 
-
-
-
 if ["$EUID" -ne 0]; then
 	echo "Run this script with root ( ex: sudo ./<script>)."
 	exit 1
@@ -114,7 +111,7 @@ fi
 
 
 if ! command -v dialog > /dev/null; then
-	sudo apt-get install dialog
+	sudo apt-get install dialog || sudo pacman -S dialog
 fi
 
 dialog --menu "Please select an option:" 12 40 4 \
