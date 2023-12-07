@@ -57,6 +57,7 @@ fi
 
 
 install_japanese() {
+	echo "🇯🇵 Now installing Japanese Language 🇯🇵"
     cd /home/$USER/Downloads
     git clone https://aur.archlinux.org/ttf-koruri.git
     cd ttf-koruri
