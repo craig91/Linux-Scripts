@@ -42,7 +42,7 @@ install_japanese() {
     makepkg -si
 }
 
-system_setup_Arch
-install_Fira_Code
+# system_setup_Arch
+# install_Fira_Code
 install_japanese
 go version

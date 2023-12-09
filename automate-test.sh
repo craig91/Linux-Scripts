@@ -62,6 +62,7 @@ install_japanese() {
     git clone https://aur.archlinux.org/ttf-koruri.git
     cd ttf-koruri
     makepkg -si
+	locale-gen
 }
 
 
