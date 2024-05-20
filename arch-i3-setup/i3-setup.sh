@@ -5,7 +5,7 @@
 
 #get from github Dot files, launch.sh
 
-ARCH_PACKAGES = ("vim" "polybar" "neofetch" "feh" "gnome-font-viewer" "picom" "kitty" "chromium" "lxappearance" "nodejs" "brightnessctl" "gparted" "thunar" "firefox" "discord" "unzip")
+ARCH_PACKAGES = ("vim" "polybar" "neofetch" "feh" "gnome-font-viewer" "picom" "kitty" "chromium" "lxappearance" "nodejs" "brightnessctl" "gparted" "thunar" "firefox" "discord" "unzip" "bumblebee-status")
 BINARY_LIST = com -23 <(pacman -Qqe | sort) <(expac -l '\n' '$E' base | sort) | grep $prog
 
 setupArch() {
@@ -36,7 +36,12 @@ install_Fira_Code() {
     fc-list | grep FiraCode
 }
 
-# Bumblebee_status() {
-#     if [bumblebee-status -eq ${BINARY_LIST}; then
-# }
+Bumblebee_status() {
+    if [bumblebee-status -eq ${BINARY_LIST}; then
+        git clone https://aur.archlinux.org/bumblebee-status.git
+        cd bumblebee-status
+        makepkg -sicr 
+
+    
+}
 
