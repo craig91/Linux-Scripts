@@ -34,6 +34,9 @@ system_setup_debian() {
 	done
 }
 
+#add function that checks a distro via lsbp-release
+
+
 system_setup_Arch() {
     sudo pacman -Syu
     for prog in "${Arch_Binaries[@]}"; do
