@@ -9,7 +9,7 @@ Snaps = ["discord", "ghidra", "simplescreenrecorder"]
 
 package_list_dnf = os.popen("dnf list installed | awk '{print $1}' | cut -d. -f1").read().split()
 package_list_apt = os.popen("dpkg -l | awk 'print $2' | cut -d. -f1").read().split()
-package_list_pacman = os.popen("pacman -Qqe").read.split()
+package_list_pacman = os.popen("pacman -Qqe").read().split()
 snap_list = os.popen("snap list | awk '{print $1}' ").read().split()
 
 
