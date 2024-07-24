@@ -36,7 +36,7 @@ def installDnfPackages():
 def installAptPackages():
     for prog in Binaries:
         if prog in package_list_apt:
-            print(f"{prog} is installed")
+            print(f"{prog} is installed")   
         else:  
             print(f"{prog} is not installed. Installing.....")
             os.system(f"sudo apt install -y {prog}")
@@ -74,16 +74,6 @@ elif Linux_distro == "arch":
 else:
     print("You must be running some uncommon linux distro ")
 
-
-
-
-
-# def installDebianPackages():
-#     subprocess.run(["sudo", "apt", "install", "-y", prog], check=True)
-
-
-# def installArchPackages():
-#     subprocess.run(["sudo", "pacman", "-S", prog], check=True)
 
 
 
