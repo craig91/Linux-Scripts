@@ -17,7 +17,7 @@ Linux_distro = distro.id()
 def GetLinuxDistro():
      print("Your linux distro is:", Linux_distro, "Linux")
 
-
+            
 
    
 
