@@ -14,8 +14,6 @@ snap_list = os.popen("snap list | awk '{print $1}' ").read().split()
 
 
 Linux_distro = distro.id()
-
-
 def GetLinuxDistro():
      print("Your linux distro is:", Linux_distro, "Linux")
 
@@ -34,7 +32,7 @@ def installDnfPackages():
 
 
 def installAptPackages():
-    package_list_apt = os.popen("dpkg -l | awk 'print $2' | cut -d. -f1").read().split()
+    package_list_apt = os.popen("dpkg -l | awk 'print $2' | cut -d. -f1 | egrep -i '[A-Z][a-z]' ").read().split()
     for prog in Binaries:
         if prog in package_list_apt:
             print(f"{prog} is installed")   
