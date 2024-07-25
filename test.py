@@ -32,7 +32,7 @@ def installDnfPackages():
 
 
 def installAptPackages():
-    package_list_apt = os.popen("dpkg -l | awk '{print $2}' | cut -d. -f1 | egrep -i '[A-Z][a-z]' ").read().split()
+    package_list_apt = os.popen("dpkg -l| egrep -i '[A-Z][a-z]' | awk '{print $2}' | cut -d. -f1 ").read().split()
     for prog in Binaries:
         if prog in package_list_apt:
             print(f"{prog} is installed")   
@@ -65,11 +65,11 @@ if Linux_distro == "fedora":
     installDnfPackages()
 elif Linux_distro == "ubuntu":
     GetLinuxDistro()
-    print("installing Debian binaries")
+    print("Installing Debian binaries")
     installAptPackages()
 elif Linux_distro == "arch":
     GetLinuxDistro()
-    print("installing Arch binaries")
+    print("Installing Arch binaries")
     installPacmanPackages()
 else:
     print("You must be running some uncommon linux distro ")
