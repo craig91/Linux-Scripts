@@ -32,7 +32,7 @@ def installDnfPackages():
 
 
 def installAptPackages():
-    package_list_apt = os.popen("dpkg -l | awk 'print $2' | cut -d. -f1 | egrep -i '[A-Z][a-z]' ").read().split()
+    package_list_apt = os.popen("dpkg -l | awk '{print $2}' | cut -d. -f1 | egrep -i '[A-Z][a-z]' ").read().split()
     for prog in Binaries:
         if prog in package_list_apt:
             print(f"{prog} is installed")   
