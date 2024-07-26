@@ -23,31 +23,37 @@ def GetLinuxDistro():
 
 def installDnfPackages():
     package_list_dnf = os.popen("dnf list installed | awk '{print $1}' | cut -d. -f1").read().split()
+    results = []
     for prog in Binaries:
         if prog in package_list_dnf:
-            print(f"{prog} is installed")
+            results.append(f"{prog} is already installed")
         else:  
             print(f"{prog} is not installed. Installing.....")
             os.system(f"sudo dnf install -y {prog}")
+    return "\n".join(results)
 
 
 def installAptPackages():
     package_list_apt = os.popen("dpkg -l| egrep -i '[A-Z][a-z]' | awk '{print $2}' | cut -d. -f1 ").read().split()
+    results = []
     for prog in Binaries:
         if prog in package_list_apt:
-            print(f"{prog} is installed")   
+            results.append(f"{prog} is already installed")   
         else:  
             print(f"{prog} is not installed. Installing.....")
             os.system(f"sudo apt install -y {prog}")
+    return "\n".join(results)
 
 def installPacmanPackages():
     package_list_pacman = os.popen("pacman -Qqe").read().split()
+    results = []
     for prog in Binaries:
         if prog in package_list_pacman:
-            print(f"{prog} is installed")
+            results.append(f"{prog} is already installed")
         else:  
             print(f"{prog} is not installed. Installing.....")
             os.system(f"sudo Pacman -S install -y {prog}")
+    return "\n".join(results)
 
 
 def installSnapPackages():
@@ -73,6 +79,7 @@ elif Linux_distro == "arch":
     installPacmanPackages()
 else:
     print("You must be running some uncommon linux distro ")
+
 
 
 
