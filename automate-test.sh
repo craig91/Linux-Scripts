@@ -15,7 +15,7 @@
 
 # Program array, add any software you want to instal to this array, make sure to verify the official name from your package manager.-
 Binaries=("vim" "nodejs" "okular" "simplescreenrecorder" "terminator" "gparted" "git" "curl" "gpg" "wget" "snapd" "gcc" "make" "mysql-server")
-Arch_Binaries=("vim" "nodejs" "terminator" "gparted" "git" "curl" "gpg" "gcc" "make" "go" "discord" "neofetch")
+Arch_Binaries=("vim" "nodejs" "terminator" "gparted" "git" "curl" "gpg" "gcc" "make" "go" "discord" "neofetc	h")
 
 
 system_setup_debian() {

@@ -23,7 +23,7 @@ def GetLinuxDistro():
 
 def installDnfPackages():
     package_list_dnf = os.popen("dnf list installed | awk '{print $1}' | cut -d. -f1").read().split()
-    results = []
+    results = []        
     for prog in Binaries:
         if prog in package_list_dnf:
             results.append(f"{prog} is already installed")
