@@ -33,25 +33,21 @@ def installDnfPackages():
 
 def installAptPackages():
     package_list_apt = os.popen("dpkg -l| egrep -i '[A-Z][a-z]' | awk '{print $2}' | cut -d. -f1 ").read().split()
-    results = []
     for prog in Binaries:
         if prog in package_list_apt:
-            results.append(f"{prog} is already installed")   
+            print(f"{prog} is already installed")   
         else:  
             print(f"{prog} is not installed. Installing.....")
             os.system(f"sudo apt install -y {prog}")
-    return "\n".join(results)
 
 def installPacmanPackages():
     package_list_pacman = os.popen("pacman -Qqe").read().split()
-    results = []
     for prog in Binaries:
         if prog in package_list_pacman:
-            results.append(f"{prog} is already installed")
+            print(f"{prog} is already installed")
         else:  
             print(f"{prog} is not installed. Installing.....")
             os.system(f"sudo Pacman -S install -y {prog}")
-    return "\n".join(results)
 
 
 def installSnapPackages():
