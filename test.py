@@ -51,7 +51,8 @@ def installPacmanPackages():
 
 
 def installSnapPackages():
-    for binary in snap_list:
+    snap_list = os.popen("snap list | awk '{print $1}' ").read().split()
+    for binary in Snaps:
         if binary in snap_list:
             print(f"{binary} This snap package is installed")
         else:
@@ -62,6 +63,10 @@ def installSnapPackages():
 if Linux_distro == "fedora":
     GetLinuxDistro()
     print("Installing RedHat binaries.....")
+    print("Installing snaps....")
+    print("######### " " SNAPS " " ###############")
+    installSnapPackages()
+    print("########## " " BINARIES " " ##############")
     installDnfPackages()
 elif Linux_distro == "ubuntu":
     GetLinuxDistro()
