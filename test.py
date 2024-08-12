@@ -3,7 +3,7 @@ import distro
 # import subprocess
 
 
-Binaries = ["vim-common","nodejs","okular","terminator","gparted","git-core","curl","gnupg2","wget2","snapd","gcc","make", "neofetch", "Thunar"]
+Binaries = ["vim-common","nodejs","okular","terminator","gparted","git-core","curl","gnupg2","wget2","snapd","gcc","make", "neofetch", "Thunar", "kitty"]
 Snaps = ["discord", "ghidra", "simplescreenrecorder"]
 
 
@@ -68,7 +68,7 @@ if Linux_distro == "fedora":
     installSnapPackages()
     print("########## " " BINARIES " " ##############")
     installDnfPackages()
-elif Linux_distro == "ubuntu":
+elif Linux_distro == "ubuntu" or "debian" :
     GetLinuxDistro()
     print("Installing Debian binaries")
     installAptPackages()
