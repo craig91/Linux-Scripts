@@ -3,7 +3,7 @@ import distro
 import subprocess
 
 
-Binaries = ["vim-common","nodejs","okular","terminator","gparted","git-core","curl","gnupg2","wget2","snapd","gcc","make", "neofetch", "Thunar", "kitty"]
+Binaries = ["vim-common","nodejs","okular","terminator","gparted","git-core","curl","gnupg2","wget2","snapd","gcc","make", "neofetch", "kitty"]
 Snaps = ["discord", "ghidra", "simplescreenrecorder"]
 
 
