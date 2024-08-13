@@ -1,6 +1,6 @@
 import os
 import distro
-# import subprocess
+import subprocess
 
 
 Binaries = ["vim-common","nodejs","okular","terminator","gparted","git-core","curl","gnupg2","wget2","snapd","gcc","make", "neofetch", "Thunar", "kitty"]
@@ -18,7 +18,17 @@ def GetLinuxDistro():
      print("Your linux distro is:", Linux_distro, "Linux")                                                      
 
             
-
+def installChromeDebian():
+    try:
+        subprocess.run(['sudo', 'apt', 'install', '-y', 'wget'], check=True)
+        downloads_folder = os.path.join(os.path.expanduser('~'), 'Downloads')
+        subprocess.run(['wget', 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb', '-P', downloads_folder], check=True)
+        chrome_file = os.path.join(downloads_folder, 'google-chrome-stable_current_amd64.deb')
+        subprocess.run(['sudo', 'apt', 'install', '-y', chrome_file], check=True)
+        subprocess.run(['rm', 'chrome_file'], check=True)
+        print("Google Chrome has been installed")
+    except subprocess.CalledProcessError as e:
+        print(f"An error occured: {e}")        
    
 
 def installDnfPackages():
@@ -70,7 +80,9 @@ if Linux_distro == "fedora":
     installDnfPackages()
 elif Linux_distro == "ubuntu" or "debian" :
     GetLinuxDistro()
+    installChromeDebian()
     print("Installing Debian binaries")
+    print("########## " " BINARIES " " ##############")
     installAptPackages()
 elif Linux_distro == "arch":
     GetLinuxDistro()
