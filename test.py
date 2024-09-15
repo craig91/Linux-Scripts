@@ -17,6 +17,8 @@ Linux_distro = distro.id()
 def GetLinuxDistro():
      print("Your linux distro is:", Linux_distro, "Linux")                                                      
 
+
+
             
 def installChromeDebian():
     try:
@@ -30,6 +32,22 @@ def installChromeDebian():
     except subprocess.CalledProcessError as e:
         print(f"An error occured: {e}")        
    
+
+def installChromeRedhat():
+    try:
+        subprocess.run(['sudo', 'dnf', 'install', '-y', 'wget'], check=True)
+        downloads_folder = os.path.join(os.path.expanduser('~'), 'Downloads')
+        subprocess.run(['wget', 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.rpm', '-P', downloads_folder], check=True)
+        chrome_file = os.path.join(downloads_folder, 'google-chrome-stable_current_amd64.deb')
+        subprocess.run(['sudo', 'dnf', 'install', '-y', chrome_file], check=True)
+        subprocess.run(['rm', 'chrome_file'], check=True)
+        print("Google Chrome has been installed")
+    except subprocess.CalledProcessError as e:
+        print(f"An error occured: {e}")        
+
+
+
+
 
 def installDnfPackages():
     package_list_dnf = os.popen("dnf list installed | awk '{print $1}' | cut -d. -f1").read().split()    
@@ -64,19 +82,21 @@ def installSnapPackages():
     snap_list = os.popen("snap list | awk '{print $1}' ").read().split()
     for binary in Snaps:
         if binary in snap_list:
-            print(f"{binary} This snap package is installed")
+            print(f"{binary} This snap package is already installed")
         else:
-            print(f"{binary} This snap package is not installed")
+            print(f"{binary} This snap package is not installed, Now Installing")
+            os.system(f"sudo snap install {binary}")
 
 
 
 if Linux_distro == "fedora":
     GetLinuxDistro()
-    print("Installing RedHat binaries.....")
+    print(f"Installing {Linux_distro} binaries.....")
     print("Installing snaps....")
     print("######### " " SNAPS " " ###############")
     installSnapPackages()
     print("########## " " BINARIES " " ##############")
+    installChromeRedhat()
     installDnfPackages()
 elif Linux_distro == "ubuntu" or "debian" :
     GetLinuxDistro()
