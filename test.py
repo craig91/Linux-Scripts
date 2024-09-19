@@ -107,7 +107,10 @@ elif Linux_distro == "ubuntu" or "debian" :
     installAptPackages()
 elif Linux_distro == "arch":
     GetLinuxDistro()
-    print("Installing Arch binaries")
+    print(f"Installing {Linux_distro} binaries.....")
+    print("Installing snaps....")
+    installSnapPackages()
+    print("########## " " INSTALLING BINARIES " " ##############")
     installPacmanPackages()
 else:
     print("You must be running some uncommon linux distro ")
