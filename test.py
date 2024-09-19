@@ -89,6 +89,11 @@ def installSnapPackages():
 
 
 
+
+## Install fonts ##
+
+
+
 if Linux_distro == "fedora":
     GetLinuxDistro()
     print(f"Installing {Linux_distro} binaries.....")
