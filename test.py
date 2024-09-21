@@ -46,7 +46,10 @@ def installChromeRedhat():
         print(f"An error occured: {e}")        
 
 
-
+## Setup drivers for nvidia cards for fedora linux ##
+def nvidia_drivers():
+    os.popen("sudo dnf update")
+    os.popen("sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda")
 
 
 def installDnfPackages():
