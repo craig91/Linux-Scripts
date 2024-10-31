@@ -4,15 +4,19 @@
 
 function getSrcIP() {
     local pcap_file=$1
-    tcpdump -tttt -r $pcap_file -n tcp | cut -d " " -f 4 | cut -d "." -f 1-4 | sort | uniq -c | sort -nr | while read line; do
-        echo "Source IP: $line"
+    printf "%-20s %-10s\n" "Source IP" "Count"
+    printf "%-20s %-10s\n" "---------" "-----"
+    tcpdump -tttt -r $pcap_file -n tcp 2>&1 | cut -d " " -f 4 | cut -d "." -f 1-4 | sort | uniq -c | sort -nr | while read count ip; do
+        printf "%-20s %-10d\n" "$ip" "$count"
     done
 }
 
 function getDstIP() {
     local pcap_file=$1
-    tcpdump -tttt -r $pcap_file -n tcp | cut -d " " -f 6 | cut -d "." -f 1-4 | sort | uniq -c | sort -nr | while read line; do
-        echo "Destination IP: $line"
+    printf "%-20s %-10s\n" "Destination IP" "Count"
+    printf "%-20s %-10s\n" "--------------" "-----"
+    tcpdump -tttt -r $pcap_file -n tcp 2>&1 | cut -d " " -f 6 | cut -d "." -f 1-4 | sort | uniq -c | sort -nr | while read line; do
+        printf "%-20s %-10d\n" "$ip" "$count"
     done
 }
 
