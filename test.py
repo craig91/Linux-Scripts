@@ -103,7 +103,7 @@ if Linux_distro == "fedora":
     print("Installing snaps....")
     installSnapPackages()
     print("########## " " INSTALLING BINARIES " " ##############")
-    installChromeRedhat()
+  # installChromeRedhat()
     installDnfPackages()
 elif Linux_distro == "ubuntu" or "debian" :
     GetLinuxDistro()
